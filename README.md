@@ -8,7 +8,7 @@ To use this library you only have to add to your Cargo.toml as a dependency:
 
 ```
 [dependencies]
-hrsw = "0.0.1"
+hrsw = "0.1.0"
 ```
 
 ## Example usage

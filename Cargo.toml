@@ -1,6 +1,6 @@
 [package]
 name = "hrsw"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["János Benjamin Antal <janos.benjamin.antal@gmail.com>"]
 edition = "2018"
 license = "MIT"
