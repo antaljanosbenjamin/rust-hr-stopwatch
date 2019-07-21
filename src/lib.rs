@@ -187,4 +187,106 @@ mod tests {
         assert_eq_with_min(&stopwatch, DURATION_TO_USE);
     }
 
+    #[test]
+    fn reset_and_start_simple() {
+        let mut stopwatch = Stopwatch::new();
+        stopwatch.start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.reset_and_start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.stop();
+        assert_eq_with_min(&stopwatch, DURATION_TO_USE);
+    }
+
+    #[test]
+    fn reset_and_start_after_stop() {
+        let mut stopwatch = Stopwatch::new();
+        stopwatch.start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.stop();
+        stopwatch.reset_and_start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.stop();
+        assert_eq_with_min(&stopwatch, DURATION_TO_USE);
+    }
+
+    #[test]
+    fn reset_and_start_multiple_start() {
+        let mut stopwatch = Stopwatch::new();
+        stopwatch.start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.reset_and_start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.start();
+        thread::sleep(DURATION_TO_USE);
+        stopwatch.stop();
+        assert_eq_with_min(&stopwatch, 2 * DURATION_TO_USE);
+    }
+
+    #[test]
+    fn is_running_simple() {
+        let mut stopwatch = Stopwatch::new();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.stop();
+        assert!(!stopwatch.is_running());
+    }
+
+    #[test]
+    fn is_running_multiple_start() {
+        let mut stopwatch = Stopwatch::new();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.stop();
+        assert!(!stopwatch.is_running());
+    }
+
+    #[test]
+    fn is_running_after_reset() {
+        let mut stopwatch = Stopwatch::new();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        stopwatch.reset();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.stop();
+        assert!(!stopwatch.is_running());
+    }
+
+    #[test]
+    fn is_running_complex_scenario() {
+        let mut stopwatch = Stopwatch::new();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.reset();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.reset_and_start();
+        assert!(stopwatch.is_running());
+    }
+
+    #[test]
+    fn is_running_after_reset_and_start() {
+        let mut stopwatch = Stopwatch::new();
+        assert!(!stopwatch.is_running());
+        stopwatch.start();
+        stopwatch.reset_and_start();
+        assert!(stopwatch.is_running());
+        stopwatch.start();
+        assert!(stopwatch.is_running());
+        stopwatch.stop();
+        assert!(!stopwatch.is_running());
+    }
+
 }
