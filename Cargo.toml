@@ -1,8 +1,9 @@
 [package]
-name = "rust-hr-stopwatch"
-version = "0.1.0"
+name = "hrsw"
+version = "0.0.1"
 authors = ["János Benjamin Antal <antal.janos.benjamin@gmail.com>"]
 edition = "2018"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
