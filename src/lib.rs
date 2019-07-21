@@ -66,6 +66,9 @@ impl Stopwatch {
             None => Duration::from_nanos(self.elapsed_time),
         }
     }
+    pub fn is_running(&self) -> bool {
+        self.start_time.is_some()
+    }
 }
 
 #[cfg(test)]
