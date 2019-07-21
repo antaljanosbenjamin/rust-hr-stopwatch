@@ -1,10 +1,16 @@
 [package]
+description = "This is a simple, high resolution stopwatch library."
 name = "hrsw"
 version = "0.1.0"
 authors = ["János Benjamin Antal <janos.benjamin.antal@gmail.com>"]
 edition = "2018"
 license = "MIT"
 repository = "https://github.com/antaljanosbenjamin/rust-hr-stopwatch"
+readme = "README.md"
+keywords = ["stopwatch", "high-resolution", "monotonic", "stopper"]
+categories = ["date-and-time", "development-tools::profiling"]
+travis-ci = { repository = "antaljanosbenjamin/rust-hr-stopwatch", branch = "master" }
+maintenance = { status = "passively-maintained" }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
