@@ -7,9 +7,9 @@
 //!
 //! let mut stopwatch = Stopwatch::new();
 //! stopwatch.start();
-//! // do something
+//! // do something and get the elapsed time
 //! let elapsed = stopwatch.elapsed();
-//! // do something other
+//! // do something other and get the total elapsed time
 //! stopwatch.stop();
 //! let total_elapsed = stopwatch.elapsed();
 //! ```
