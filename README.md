@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/antaljanosbenjamin/rust-hr-stopwatch.png?branch=master)](https://travis-ci.com/antaljanosbenjamin/rust-hr-stopwatch)
 
-This library is a simple stopwatch implementation based on the [time]([time](https://docs.rs/crate/time/0.1.42)) crate. This library can be also found on [crates.io](https://crates.io/crates/stopwatch).
+This library is a simple stopwatch implementation based on the [time]([time](https://docs.rs/crate/time/0.1.42)) crate. This library can be also found on [crates.io](https://crates.io/crates/hrsw).
 
 To use this library you only have to add to your Cargo.toml as a dependency:
 
