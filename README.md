@@ -1,6 +1,6 @@
 # High resolution stopwatch
 
-[![Build Status](https://travis-ci.com/antaljanosbenjamin/rust-hr-stopwatch.png?branch=master)](https://travis-ci.com/antaljanosbenjamin/rust-hr-stopwatch)
+![build](https://github.com/antaljanosbenjamin/rust-hr-stopwatch/actions/workflows/build.yml/badge.svg)
 
 This library is a simple stopwatch implementation based on the [time]([time](https://docs.rs/crate/time/0.1.42)) crate. This library can be also found on [crates.io](https://crates.io/crates/hrsw).
 
