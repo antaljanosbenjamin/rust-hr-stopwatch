@@ -1,0 +1,25 @@
+name: build
+on: [push]
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - name: "Windows"
+            os: windows-latest
+          - name: "Ubuntu"
+            os: ubuntu-latest
+          - name: "Ubuntu"
+            os: ubuntu-latest
+      fail-fast: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build
+        run: cargo build
+        shell: bash
+      - name: Run tests
+        run: cargo test
+        shell: bash
