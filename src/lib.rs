@@ -14,11 +14,12 @@
 //! let total_elapsed = stopwatch.elapsed();
 //! ```
 use std::time::Duration;
+use std::time::SystemTime;
 
 #[derive(Clone, Copy, Debug)]
 pub struct Stopwatch {
-    start_time: Option<u64>,
-    elapsed_time: u64,
+    start_time: Option<SystemTime>,
+    elapsed_duration: Duration,
 }
 
 impl Stopwatch {
@@ -26,7 +27,7 @@ impl Stopwatch {
     pub fn new() -> Stopwatch {
         Stopwatch {
             start_time: None,
-            elapsed_time: 0,
+            elapsed_duration: Duration::new(0, 0),
         }
     }
 
@@ -34,7 +35,7 @@ impl Stopwatch {
     pub fn new_started() -> Stopwatch {
         let mut stopwatch = Stopwatch {
             start_time: None,
-            elapsed_time: 0,
+            elapsed_duration: Duration::new(0, 0),
         };
         stopwatch.start();
         stopwatch
@@ -44,7 +45,7 @@ impl Stopwatch {
     /// If the stopwatch is already running, then the call has no effect.
     pub fn start(&mut self) {
         if self.start_time.is_none() {
-            self.start_time = Some(time::precise_time_ns());
+            self.start_time = Some(SystemTime::now());
         }
     }
 
@@ -52,8 +53,8 @@ impl Stopwatch {
     /// The elapsed duration can be obtained using `elapsed()`. If the stopwatch has never been started or has already been stoped, then the call has no effect.
     pub fn stop(&mut self) {
         if self.start_time.is_some() {
-            self.elapsed_time =
-                self.elapsed_time + (time::precise_time_ns() - self.start_time.take().unwrap());
+            self.elapsed_duration = self.elapsed_duration
+                + (SystemTime::now().duration_since(self.start_time.take().unwrap())).unwrap();
         }
     }
 
@@ -61,7 +62,7 @@ impl Stopwatch {
     /// If the stopwatch is running, then it will be stoped and the elapsed will be cleared, so it can't be obtained.
     pub fn reset(&mut self) {
         self.start_time = None;
-        self.elapsed_time = 0;
+        self.elapsed_duration = Duration::new(0, 0);
     }
 
     /// Restores the original state of the stopwatch and then starts the measurement.
@@ -74,8 +75,8 @@ impl Stopwatch {
     /// Returns the elapsed time. In case of multiple `start()` and `stop()` the elapsed intervals are accumulated. The elapsed time can be cleared by `reset()` or reset_and_start()`.
     pub fn elapsed(&self) -> Duration {
         match self.start_time {
-            Some(t) => Duration::from_nanos(self.elapsed_time + (time::precise_time_ns() - t)),
-            None => Duration::from_nanos(self.elapsed_time),
+            Some(t) => self.elapsed_duration + SystemTime::now().duration_since(t).unwrap(),
+            None => self.elapsed_duration,
         }
     }
 
