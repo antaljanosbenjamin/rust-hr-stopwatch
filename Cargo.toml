@@ -9,7 +9,6 @@ repository = "https://github.com/antaljanosbenjamin/rust-hr-stopwatch"
 readme = "README.md"
 keywords = ["stopwatch", "high-resolution", "monotonic", "stopper"]
 categories = ["date-and-time", "development-tools::profiling"]
-travis-ci = { repository = "antaljanosbenjamin/rust-hr-stopwatch", branch = "master" }
 maintenance = { status = "passively-maintained" }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
