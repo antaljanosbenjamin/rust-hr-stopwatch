@@ -50,7 +50,7 @@ impl Stopwatch {
     }
 
     /// Stops the measurement.
-    /// The elapsed duration can be obtained using `elapsed()`. If the stopwatch has never been started or has already been stoped, then the call has no effect.
+    /// The elapsed duration can be obtained using `elapsed()`. If the stopwatch has never been started or has already been stopped, then the call has no effect.
     pub fn stop(&mut self) {
         if self.start_time.is_some() {
             self.elapsed_duration = self.elapsed_duration
@@ -59,7 +59,7 @@ impl Stopwatch {
     }
 
     /// Restores the original state of the stopwatch.
-    /// If the stopwatch is running, then it will be stoped and the elapsed will be cleared, so it can't be obtained.
+    /// If the stopwatch is running, then it will be stopped and the elapsed will be cleared, so it can't be obtained.
     pub fn reset(&mut self) {
         self.start_time = None;
         self.elapsed_duration = Duration::new(0, 0);
@@ -125,7 +125,7 @@ mod tests {
     }
 
     #[test]
-    fn multipe_start() {
+    fn multiple_start() {
         let mut stopwatch = Stopwatch::new();
         stopwatch.start();
         thread::sleep(DURATION_TO_USE);
@@ -139,7 +139,7 @@ mod tests {
     }
 
     #[test]
-    fn multipe_start_without_stop() {
+    fn multiple_start_without_stop() {
         let mut stopwatch = Stopwatch::new();
         stopwatch.start();
         thread::sleep(DURATION_TO_USE);
