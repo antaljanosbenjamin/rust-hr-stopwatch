@@ -1,7 +1,7 @@
 [package]
 description = "This is a simple, high resolution stopwatch library."
 name = "hrsw"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["János Benjamin Antal <janos.benjamin.antal@gmail.com>"]
 edition = "2018"
 license = "MIT"

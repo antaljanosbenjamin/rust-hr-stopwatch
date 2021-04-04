@@ -2,8 +2,12 @@
 
 ## Next release
 
+
+## [v0.1.2](https://github.com/antaljanosbenjamin/rust-hr-stopwatch/releases/tag/v0.1.2)
+ - Update README.md with the correct version
+
 ## [v0.1.1](https://github.com/antaljanosbenjamin/rust-hr-stopwatch/releases/tag/v0.1.1)
- 
+
  - Eliminate `time` crate from dependencies
  - Add `Debug` trait to `Stopwatch`.
 
