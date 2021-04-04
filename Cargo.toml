@@ -10,5 +10,5 @@ readme = "README.md"
 keywords = ["stopwatch", "high-resolution", "monotonic", "stopper"]
 categories = ["date-and-time", "development-tools::profiling"]
 maintenance = { status = "passively-maintained" }
-
+include = ["src/**/*", "LICENSE", "README.md", "CHANGELOG.md"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
