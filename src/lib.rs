@@ -89,12 +89,23 @@ impl Stopwatch {
 mod tests {
     use super::*;
     use std::thread;
-    static DURATION_TO_USE: Duration = Duration::from_micros(500);
-    static TOLERANCE: Duration = Duration::from_millis(100);
+    static DURATION_TO_USE: Duration = Duration::from_millis(400);
+    static RELATIVE_TOLERANCE: f32 = 0.05;
 
     fn assert_eq_dur_with_min(measured: Duration, expected: Duration) {
-        assert!(expected <= measured);
-        assert!(measured < (expected + TOLERANCE));
+        assert!(
+            expected <= measured,
+            "Expected: {}, measured: {}",
+            expected.as_millis(),
+            measured.as_millis()
+        );
+        let expected_maximum = expected.mul_f32(1.0 + RELATIVE_TOLERANCE);
+        assert!(
+            measured < expected_maximum,
+            "Expected maximum: {}, measured: {}",
+            expected_maximum.as_millis(),
+            measured.as_millis()
+        );
     }
 
     fn assert_eq_with_min(stopwatch: &Stopwatch, duration: Duration) {
@@ -289,5 +300,4 @@ mod tests {
         stopwatch.stop();
         assert!(!stopwatch.is_running());
     }
-
 }
