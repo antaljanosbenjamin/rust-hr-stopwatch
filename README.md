@@ -2,7 +2,7 @@
 
 ![build](https://github.com/antaljanosbenjamin/rust-hr-stopwatch/actions/workflows/build.yml/badge.svg)
 
-This library is a simple stopwatch implementation based on the `std::time::SystemTime`. This library can be also found on [crates.io](https://crates.io/crates/hrsw).
+This library is a simple stopwatch implementation based on `std::time::SystemTime`. This library can also be found on [crates.io](https://crates.io/crates/hrsw).
 
 To use this library you only have to add to your Cargo.toml as a dependency:
 
