@@ -15,7 +15,7 @@
 //! ```
 use std::time::Duration;
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct Stopwatch {
     start_time: Option<u64>,
     elapsed_time: u64,
